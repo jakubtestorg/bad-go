@@ -1,0 +1,7 @@
+version: 2
+updates:
+  - package-ecosystem: "{{.Profile.package_ecosystem }}"
+    directory: "/"
+    schedule:
+      interval: "{{.Profile.schedule_interval }}"
+    open-pull-requests-limit: 10
