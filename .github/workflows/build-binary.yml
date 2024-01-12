@@ -9,6 +9,10 @@ on:
 
 jobs:
   build:
+    permissions:
+        id-token: write
+        packages: write
+        contents: write
     runs-on: ubuntu-latest
     steps:
         - name: Check out code
@@ -20,3 +24,7 @@ jobs:
         - name: Run Go build
           run: |
             go build -v -o bad-go ./...
+        - name: Sign artifact
+          uses: github-early-access/generate-build-provenance@main
+          with:
+            subject-path: '${{ github.workspace }}/bad-go'
