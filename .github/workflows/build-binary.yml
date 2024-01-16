@@ -28,3 +28,8 @@ jobs:
           uses: jhrozek/generate-build-provenance@dont_post
           with:
             subject-path: '${{ github.workspace }}/bad-go'
+        - name: Upload artifact
+          uses: actions/upload-artifact@v3
+          with:
+            name: bad-go-binary
+            path: bad-go
