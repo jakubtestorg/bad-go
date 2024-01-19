@@ -72,6 +72,6 @@ jobs:
         if: ${{ github.event_name != 'pull_request' }}
         uses: github-early-access/generate-build-provenance@main
         with:
-          subject-name: ${{ steps.meta.outputs.tags }}
+          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           subject-digest: ${{ steps.build-and-push.outputs.digest }}
           push-to-registry: true
