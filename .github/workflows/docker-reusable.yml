@@ -1,0 +1,13 @@
+name: Docker-signed-from-reusable
+on:
+  workflow_dispatch:
+env:
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ghcr.io
+  # github.repository as <account>/<repo>
+  IMAGE_NAME: ${{ github.repository }}
+jobs:
+    call-workflow-build-docker:
+        uses: jakubtestorg/workflows/.github/workflows/build-docker.yml@main
+        with:
+            push-to-registry: true
