@@ -7,13 +7,13 @@ env:
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
 jobs:
-    call-workflow-build-docker:
-        uses: jakubtestorg/workflows/.github/workflows/build-docker.yml@main
-        with:
-            push-to-registry: true
-        permissions:
-            contents: read
-            packages: write
-            # This is used to complete the identity challenge
-            # with sigstore/fulcio when running outside of PRs.
-            id-token: write
+  call-workflow-build-docker:
+    uses: jakubtestorg/workflows/.github/workflows/build-docker.yml@2b37a3e12a98345f6653f7821d440cbcb02e6587 # main
+    with:
+      push-to-registry: true
+    permissions:
+      contents: read
+      packages: write
+      # This is used to complete the identity challenge
+      # with sigstore/fulcio when running outside of PRs.
+      id-token: write
